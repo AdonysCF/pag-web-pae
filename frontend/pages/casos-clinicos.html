@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Casos Clínicos - Nursify</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- IMPORTANTE:
+         Este archivo contiene el layout general
+         utilizado por Pacientes, Valoración, Diagnósticos y PAE.
+    -->
+    <link rel="stylesheet" href="../css/views/pacientes.css">
+
+    <link rel="stylesheet" href="../css/views/casos-clinicos.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div class="brand-info">
+                <h2>Nursify</h2>
+                <span>PAE Inteligente</span>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-section">
+
+                <span class="nav-section-title">
+                    PRINCIPAL
+                </span>
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">⌂</span>
+                    <span>Inicio</span>
+                </a>
+
+                <a href="pacientes.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span>Pacientes</span>
+                </a>
+
+                <a href="valoracion.html" class="nav-item">
+                    <span class="nav-icon">🩺</span>
+                    <span>Valoración</span>
+                </a>
+
+            </div>
+
+
+            <div class="nav-section">
+
+                <span class="nav-section-title">
+                    PROCESO DE ATENCIÓN
+                </span>
+
+                <a href="casos-clinicos.html"
+                   class="nav-item active">
+
+                    <span class="nav-icon">📄</span>
+                    <span>Casos clínicos</span>
+
+                </a>
+
+                <a href="diagnosticos.html" class="nav-item">
+                    <span class="nav-icon">⚕</span>
+                    <span>Diagnósticos</span>
+                </a>
+
+                <a href="pae.html" class="nav-item">
+                    <span class="nav-icon">📋</span>
+                    <span>PAE</span>
+                </a>
+
+                <a href="reportes.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span>Reportes</span>
+                </a>
+
+            </div>
+
+
+            <div class="nav-section">
+
+                <span class="nav-section-title">
+                    SISTEMA
+                </span>
+
+                <a href="configuracion.html" class="nav-item">
+                    <span class="nav-icon">⚙</span>
+                    <span>Configuración</span>
+                </a>
+
+                <a href="#" id="btnCerrarSesion" class="nav-item">
+                    <span class="nav-icon">↪</span>
+                    <span>Cerrar sesión</span>
+                </a>
+
+            </div>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="main-container">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <h1>Casos clínicos</h1>
+
+                <p>
+                    Carga y revisión de casos clínicos
+                </p>
+            </div>
+
+            <div class="user-menu">
+
+                <div class="user-avatar" id="userAvatar">
+                    U
+                </div>
+
+                <div>
+                    <strong id="userName">
+                        Usuario
+                    </strong>
+
+                    <span id="userRole">
+                        Enfermería
+                    </span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENIDO -->
+        <section class="page-content">
+
+            <div class="page-header">
+
+                <div>
+                    <h2>Casos clínicos</h2>
+
+                    <p>
+                        Sube un caso clínico en PDF para
+                        extraer automáticamente su contenido.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- TARJETA DE CARGA -->
+            <section class="card upload-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>
+                            Cargar caso clínico
+                        </h3>
+
+                        <p>
+                            El documento será procesado
+                            y convertido en texto.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="upload-area" id="uploadArea">
+
+                    <div class="upload-icon">
+                        📄
+                    </div>
+
+                    <h3>
+                        Selecciona un archivo PDF
+                    </h3>
+
+                    <p>
+                        Arrastra el archivo aquí o
+                        selecciona uno desde tu computadora.
+                    </p>
+
+                    <input
+                        type="file"
+                        id="archivoPDF"
+                        accept=".pdf,application/pdf"
+                        hidden
+                    >
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="btnSeleccionarPDF">
+
+                        Seleccionar PDF
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="archivoSeleccionado"
+                    class="selected-file hidden">
+
+                    <div>
+
+                        <strong id="nombreArchivo">
+                            archivo.pdf
+                        </strong>
+
+                        <span id="tamanoArchivo">
+                            0 KB
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="btnSubirPDF">
+
+                        Procesar PDF
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- CASOS REGISTRADOS -->
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>
+                            Casos registrados
+                        </h3>
+
+                        <p>
+                            Documentos procesados por Nursify.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div id="casosContainer">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            📄
+                        </div>
+
+                        <h3>
+                            No hay casos clínicos
+                        </h3>
+
+                        <p>
+                            Sube tu primer caso clínico
+                            para comenzar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- VISOR DE TEXTO -->
+            <section
+                id="visorCaso"
+                class="card hidden">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Contenido extraído
+                        </h3>
+
+                        <p id="visorNombreArchivo">
+                            Caso clínico
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="btnCerrarVisor">
+
+                        Cerrar
+
+                    </button>
+
+                </div>
+
+
+                <div class="text-preview">
+
+                    <pre id="textoExtraido"></pre>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/views/casos-clinicos.js"></script>
+
+</body>
+
+</html>

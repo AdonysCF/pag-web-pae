@@ -22,3 +22,5 @@ pypdf
 
 pytest
 httpx
+
+PyMuPDF

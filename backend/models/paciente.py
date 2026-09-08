@@ -52,4 +52,5 @@ class Paciente(Base):
     casos_clinicos = relationship(
         "CasoClinico",
         back_populates="paciente",
+        cascade="all, delete-orphan"
     )

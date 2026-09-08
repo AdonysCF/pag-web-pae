@@ -7,6 +7,7 @@ from backend.models.diagnostico_paciente import DiagnosticoPaciente
 from backend.models.pae import Pae
 from backend.models.caso_clinico import CasoClinico
 from backend.models.reporte import Reporte
+from backend.models.caso_clinico import CasoClinico
 
 
 __all__ = [

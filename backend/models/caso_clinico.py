@@ -12,36 +12,49 @@ class CasoClinico(Base):
     id_caso_clinico: Mapped[int] = mapped_column(
         Integer,
         primary_key=True,
-        autoincrement=True,
+        autoincrement=True
     )
 
     id_paciente: Mapped[int | None] = mapped_column(
         ForeignKey("paciente.id_paciente"),
-        nullable=True,
+        nullable=True
     )
 
     nombre_archivo: Mapped[str] = mapped_column(
         String(255),
-        nullable=False,
+        nullable=False
     )
 
     ruta_archivo: Mapped[str] = mapped_column(
         String(500),
-        nullable=False,
+        nullable=False
     )
 
     texto_extraido: Mapped[str | None] = mapped_column(
         Text,
-        nullable=True,
+        nullable=True
+    )
+
+    estado: Mapped[str] = mapped_column(
+        String(30),
+        default="extraido",
+        nullable=False
     )
 
     fecha_creacion: Mapped[datetime] = mapped_column(
         DateTime,
         default=datetime.utcnow,
-        nullable=False,
+        nullable=False
+    )
+
+    fecha_actualizacion: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow,
+        nullable=False
     )
 
     paciente = relationship(
         "Paciente",
-        back_populates="casos_clinicos",
+        back_populates="casos_clinicos"
     )
