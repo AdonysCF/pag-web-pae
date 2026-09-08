@@ -66,3 +66,10 @@ class Valoracion(Base):
         "Reporte",
         back_populates="valoracion",
     )
+
+    pae = relationship(
+        "Pae",
+        back_populates="valoracion",
+        uselist=False,
+        cascade="all, delete-orphan"
+    )

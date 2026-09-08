@@ -12,32 +12,54 @@ class Pae(Base):
     id_pae: Mapped[int] = mapped_column(
         Integer,
         primary_key=True,
-        autoincrement=True,
+        autoincrement=True
     )
 
     id_valoracion: Mapped[int] = mapped_column(
         ForeignKey("valoracion.id_valoracion"),
         unique=True,
-        nullable=False,
+        nullable=False
+    )
+
+    planificacion: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True
+    )
+
+    resultados_esperados: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True
+    )
+
+    intervenciones: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True
+    )
+
+    actividades: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True
+    )
+
+    evaluacion: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True
     )
 
     fecha_creacion: Mapped[datetime] = mapped_column(
         DateTime,
         default=datetime.utcnow,
-        nullable=False,
+        nullable=False
     )
 
-    plan_cuidado: Mapped[str | None] = mapped_column(
-        Text,
-        nullable=True,
-    )
-
-    resultado_ia: Mapped[str | None] = mapped_column(
-        Text,
-        nullable=True,
+    fecha_actualizacion: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow,
+        nullable=False
     )
 
     valoracion = relationship(
         "Valoracion",
-        back_populates="pae",
+        back_populates="pae"
     )

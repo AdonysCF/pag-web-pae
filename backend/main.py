@@ -10,6 +10,7 @@ from backend.api.pacientes import router as pacientes_router
 from backend.api.auth import router as auth_router
 from backend.api.valoraciones import router as valoraciones_router
 from backend.api.diagnosticos import router as diagnosticos_router
+from backend.api.pae import router as pae_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -31,6 +32,7 @@ app.include_router(auth_router)
 app.include_router(pacientes_router)
 app.include_router(valoraciones_router)
 app.include_router(diagnosticos_router)
+app.include_router(pae_router)
 
 app.add_middleware(
     CORSMiddleware,

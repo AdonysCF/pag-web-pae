@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PAE - Nursify</title>
+
+    <!-- ESTILOS GLOBALES -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- IMPORTANTE:
+         Contiene el diseño común del sidebar, topbar y estructura general -->
+    <link rel="stylesheet" href="../css/views/pacientes.css">
+
+    <!-- ESTILOS PROPIOS DEL PAE -->
+    <link rel="stylesheet" href="../css/views/pae.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div class="brand-info">
+                <h2>Nursify</h2>
+                <span>PAE Digital</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <!-- PRINCIPAL -->
+
+            <div class="nav-section-title">
+                PRINCIPAL
+            </div>
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Inicio</span>
+            </a>
+
+            <a href="pacientes.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Pacientes</span>
+            </a>
+
+            <a href="valoracion.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Valoración</span>
+            </a>
+
+
+            <!-- PROCESO DE ATENCIÓN -->
+
+            <div class="nav-section-title">
+                PROCESO DE ATENCIÓN
+            </div>
+
+            <a href="diagnosticos.html" class="nav-item">
+                <span class="nav-icon">✚</span>
+                <span>Diagnósticos</span>
+            </a>
+
+            <a href="pae.html" class="nav-item active">
+                <span class="nav-icon">☷</span>
+                <span>PAE</span>
+            </a>
+
+            <a href="reportes.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reportes</span>
+            </a>
+
+
+            <!-- SISTEMA -->
+
+            <div class="nav-section-title">
+                SISTEMA
+            </div>
+
+            <a href="configuracion.html" class="nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Configuración</span>
+            </a>
+
+        </nav>
+
+
+        <!-- CERRAR SESIÓN -->
+
+        <div class="sidebar-footer">
+
+            <button
+                type="button"
+                class="nav-item logout-button"
+                id="btnCerrarSesion">
+
+                <span class="nav-icon">↪</span>
+                <span>Cerrar sesión</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         CONTENEDOR PRINCIPAL
+    ====================================================== -->
+
+    <div class="main-container">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="btn-menu">
+
+                    ☰
+
+                </button>
+
+                <div>
+                    <h1>PAE</h1>
+                    <p>Proceso de Atención de Enfermería</p>
+                </div>
+
+            </div>
+
+
+            <!-- USUARIO -->
+
+            <div class="user-menu">
+
+                <div class="user-avatar" id="userAvatar">
+                    U
+                </div>
+
+                <div class="user-info">
+
+                    <strong id="usuarioNombre">
+                        Usuario
+                    </strong>
+
+                    <span id="user-role">
+                        Enfermero/a
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENIDO PAE
+        ================================================== -->
+
+        <main class="pae-content">
+
+
+            <!-- ENCABEZADO -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <h2>Proceso de Atención de Enfermería</h2>
+
+                    <p>
+                        Elaboración y seguimiento del PAE a partir de la valoración del paciente.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SELECCIÓN DE PACIENTE
+            ================================================== -->
+
+            <section class="content-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>Seleccionar paciente</h3>
+
+                        <p>
+                            Selecciona el paciente y la valoración con la que deseas trabajar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="selection-grid">
+
+                    <div class="form-group">
+
+                        <label for="selectPaciente">
+                            Paciente
+                        </label>
+
+                        <select
+                            id="selectPaciente"
+                            class="form-control">
+
+                            <option value="">
+                                Seleccionar paciente...
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="selectValoracion">
+                            Valoración
+                        </label>
+
+                        <select
+                            id="selectValoracion"
+                            class="form-control"
+                            disabled>
+
+                            <option value="">
+                                Seleccionar valoración...
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INFORMACIÓN DEL PACIENTE -->
+
+                <div
+                    id="patientInfo"
+                    class="patient-info hidden">
+
+                    <div class="patient-info-item">
+
+                        <span class="info-label">
+                            Paciente
+                        </span>
+
+                        <strong id="infoPaciente">
+                            -
+                        </strong>
+
+                    </div>
+
+                    <div class="patient-info-item">
+
+                        <span class="info-label">
+                            DNI
+                        </span>
+
+                        <strong id="infoDni">
+                            -
+                        </strong>
+
+                    </div>
+
+                    <div class="patient-info-item">
+
+                        <span class="info-label">
+                            Fecha valoración
+                        </span>
+
+                        <strong id="infoFecha">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MENSAJE INICIAL
+            ================================================== -->
+
+            <div
+                id="mensajeInicial"
+                class="empty-state">
+
+                <div class="empty-icon">
+                    ☷
+                </div>
+
+                <h3>Comienza el PAE</h3>
+
+                <p>
+                    Selecciona un paciente y una valoración para comenzar
+                    a elaborar el Proceso de Atención de Enfermería.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTENIDO DEL PAE
+            ================================================== -->
+
+            <div
+                id="paeContainer"
+                class="hidden">
+
+
+                <!-- =================================================
+                     DIAGNÓSTICOS
+                ================================================== -->
+
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>
+                                1. Diagnósticos de Enfermería
+                            </h3>
+
+                            <p>
+                                Diagnósticos asociados al paciente.
+                            </p>
+
+                        </div>
+
+                        <span
+                            id="contadorDiagnosticos"
+                            class="contador">
+                            0 diagnósticos
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="diagnosticosContainer"
+                        class="diagnosticos-list">
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     PLANIFICACIÓN
+                ================================================== -->
+
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>
+                                2. Planificación
+                            </h3>
+
+                            <p>
+                                Define las prioridades y objetivos del cuidado.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="planificacion">
+                            Planificación del cuidado
+                        </label>
+
+                        <textarea
+                            id="planificacion"
+                            class="form-control textarea-pae"
+                            rows="6"
+                            placeholder="Describe las prioridades, objetivos y planificación del cuidado de enfermería...">
+                        </textarea>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     RESULTADOS ESPERADOS
+                ================================================== -->
+
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>
+                                3. Resultados esperados
+                            </h3>
+
+                            <p>
+                                Resultados que se esperan alcanzar en el paciente.
+                            </p>
+
+                        </div>
+
+                        <span class="taxonomy-badge noc">
+                            NOC
+                        </span>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="resultadosEsperados">
+                            Resultados esperados
+                        </label>
+
+                        <textarea
+                            id="resultadosEsperados"
+                            class="form-control textarea-pae"
+                            rows="6"
+                            placeholder="Describe los resultados esperados y los indicadores que permitirán evaluar la evolución del paciente...">
+                        </textarea>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     INTERVENCIONES
+                ================================================== -->
+
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>
+                                4. Intervenciones de Enfermería
+                            </h3>
+
+                            <p>
+                                Intervenciones necesarias para alcanzar los resultados esperados.
+                            </p>
+
+                        </div>
+
+                        <span class="taxonomy-badge nic">
+                            NIC
+                        </span>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="intervenciones">
+                            Intervenciones
+                        </label>
+
+                        <textarea
+                            id="intervenciones"
+                            class="form-control textarea-pae"
+                            rows="6"
+                            placeholder="Describe las intervenciones de enfermería que se realizarán...">
+                        </textarea>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ACTIVIDADES
+                ================================================== -->
+
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>
+                                5. Actividades de Enfermería
+                            </h3>
+
+                            <p>
+                                Actividades concretas que serán ejecutadas.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="actividades">
+                            Actividades
+                        </label>
+
+                        <textarea
+                            id="actividades"
+                            class="form-control textarea-pae"
+                            rows="7"
+                            placeholder="Escribe las actividades específicas de enfermería...">
+                        </textarea>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     EVALUACIÓN
+                ================================================== -->
+
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>
+                                6. Evaluación
+                            </h3>
+
+                            <p>
+                                Registra la respuesta y evolución del paciente.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="evaluacion">
+                            Evaluación del paciente
+                        </label>
+
+                        <textarea
+                            id="evaluacion"
+                            class="form-control textarea-pae"
+                            rows="6"
+                            placeholder="Describe la evolución del paciente y determina si se alcanzaron los resultados esperados...">
+                        </textarea>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     BOTONES
+                ================================================== -->
+
+                <div class="pae-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="btnLimpiar">
+
+                        Limpiar
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="btnGuardar">
+
+                        Guardar PAE
+
+                    </button>
+
+                </div>
+
+
+                <!-- MENSAJE -->
+
+                <div
+                    id="mensaje"
+                    class="message hidden">
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/views/pae.js"></script>
+
+</body>
+</html>
