@@ -16,10 +16,6 @@
 
     <div class="app-layout">
 
-        <!-- =========================
-             BARRA LATERAL
-        ========================== -->
-
         <aside class="sidebar">
 
             <div class="sidebar-header">
@@ -59,6 +55,12 @@
                 <p class="nav-section-title">
                     PROCESO DE ATENCIÓN
                 </p>
+
+                <!-- NUEVO: acceso directo a Casos Clínicos -->
+                <a href="casos-clinicos.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Casos clínicos</span>
+                </a>
 
                 <a href="diagnosticos.html" class="nav-item">
                     <span class="nav-icon">✚</span>
@@ -101,14 +103,7 @@
 
         </aside>
 
-
-        <!-- =========================
-             CONTENIDO PRINCIPAL
-        ========================== -->
-
         <div class="main-container">
-
-            <!-- HEADER -->
 
             <header class="topbar">
 
@@ -129,7 +124,6 @@
                     </div>
 
                 </div>
-
 
                 <div class="user-menu">
 
@@ -153,12 +147,7 @@
 
             </header>
 
-
-            <!-- CONTENIDO -->
-
             <main class="dashboard-content">
-
-                <!-- BIENVENIDA -->
 
                 <section class="welcome-section">
 
@@ -179,9 +168,6 @@
                     </div>
 
                 </section>
-
-
-                <!-- ESTADÍSTICAS -->
 
                 <section class="stats-grid">
 
@@ -205,7 +191,6 @@
 
                     </article>
 
-
                     <article class="stat-card">
 
                         <div class="stat-icon">
@@ -226,7 +211,6 @@
 
                     </article>
 
-
                     <article class="stat-card">
 
                         <div class="stat-icon">
@@ -246,7 +230,6 @@
                         </div>
 
                     </article>
-
 
                     <article class="stat-card">
 
@@ -270,9 +253,6 @@
 
                 </section>
 
-
-                <!-- ACCIONES RÁPIDAS -->
-
                 <section class="dashboard-section">
 
                     <div class="section-header">
@@ -287,13 +267,9 @@
 
                     </div>
 
-
                     <div class="quick-actions">
 
-                        <a
-                            href="pacientes.html"
-                            class="quick-action"
-                        >
+                        <a href="pacientes.html" class="quick-action">
 
                             <div class="quick-action-icon">
                                 ♙
@@ -313,11 +289,7 @@
 
                         </a>
 
-
-                        <a
-                            href="valoracion.html"
-                            class="quick-action"
-                        >
+                        <a href="valoracion.html" class="quick-action">
 
                             <div class="quick-action-icon">
                                 ＋
@@ -337,11 +309,28 @@
 
                         </a>
 
+                        <!-- NUEVO: acceso rápido a Casos Clínicos -->
+                        <a href="casos-clinicos.html" class="quick-action">
 
-                        <a
-                            href="diagnosticos.html"
-                            class="quick-action"
-                        >
+                            <div class="quick-action-icon">
+                                ▤
+                            </div>
+
+                            <div>
+                                <strong>Casos clínicos</strong>
+
+                                <span>
+                                    Cargar y revisar un caso clínico
+                                </span>
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+                        <a href="diagnosticos.html" class="quick-action">
 
                             <div class="quick-action-icon">
                                 ✚
@@ -361,11 +350,7 @@
 
                         </a>
 
-
-                        <a
-                            href="reportes.html"
-                            class="quick-action"
-                        >
+                        <a href="reportes.html" class="quick-action">
 
                             <div class="quick-action-icon">
                                 ▤
@@ -389,9 +374,6 @@
 
                 </section>
 
-
-                <!-- ESTADO DEL SISTEMA -->
-
                 <section class="dashboard-section">
 
                     <div class="section-header">
@@ -410,7 +392,6 @@
 
                     </div>
 
-
                     <div class="system-status">
 
                         <div class="status-item">
@@ -426,7 +407,6 @@
                             </div>
 
                         </div>
-
 
                         <div class="status-item">
 
@@ -451,11 +431,6 @@
         </div>
 
     </div>
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
 
     <script src="../js/api.js"></script>
     <script src="../js/auth.js"></script>
