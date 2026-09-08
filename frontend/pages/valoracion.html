@@ -1,572 +1,823 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Nursify - Valoración</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<link rel="stylesheet" href="../css/variables.css">
-<link rel="stylesheet" href="../css/main.css">
-<link rel="stylesheet" href="../css/views/valoracion.css">
-```
+    <title>Nursify - Valoración</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/main.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/views/valoracion.css"
+    >
 
 </head>
 
+
 <body>
 
-```
-<div class="app-layout">
-
-    <!-- =========================
-         SIDEBAR
-    ========================== -->
-
-    <aside class="sidebar">
-
-        <div class="sidebar-header">
-
-            <div class="brand-logo">
-                N
-            </div>
-
-            <div class="brand-info">
-                <h1>Nursify</h1>
-                <span>PAE Digital</span>
-            </div>
-
-        </div>
+    <div class="app-layout">
 
 
-        <nav class="sidebar-nav">
+        <!-- =========================================
+             SIDEBAR
+        ========================================== -->
 
-            <p class="nav-section-title">
-                PRINCIPAL
-            </p>
-
-            <a href="dashboard.html" class="nav-item">
-                <span class="nav-icon">⌂</span>
-                <span>Inicio</span>
-            </a>
-
-            <a href="pacientes.html" class="nav-item">
-                <span class="nav-icon">♙</span>
-                <span>Pacientes</span>
-            </a>
-
-            <a href="valoracion.html" class="nav-item active">
-                <span class="nav-icon">＋</span>
-                <span>Valoración</span>
-            </a>
+        <aside class="sidebar">
 
 
-            <p class="nav-section-title">
-                PROCESO DE ATENCIÓN
-            </p>
+            <!-- LOGO -->
 
-            <a href="diagnosticos.html" class="nav-item">
-                <span class="nav-icon">✚</span>
-                <span>Diagnósticos</span>
-            </a>
+            <div class="sidebar-header">
 
-            <a href="pae.html" class="nav-item">
-                <span class="nav-icon">▣</span>
-                <span>PAE</span>
-            </a>
-
-            <a href="reportes.html" class="nav-item">
-                <span class="nav-icon">▤</span>
-                <span>Reportes</span>
-            </a>
-
-
-            <p class="nav-section-title">
-                SISTEMA
-            </p>
-
-            <a href="configuracion.html" class="nav-item">
-                <span class="nav-icon">⚙</span>
-                <span>Configuración</span>
-            </a>
-
-        </nav>
-
-
-        <div class="sidebar-footer">
-
-            <button
-                type="button"
-                id="btnCerrarSesion"
-                class="logout-button"
-            >
-                <span class="nav-icon">↪</span>
-                <span>Cerrar sesión</span>
-            </button>
-
-        </div>
-
-    </aside>
-
-
-    <!-- =========================
-         CONTENIDO PRINCIPAL
-    ========================== -->
-
-    <div class="main-container">
-
-        <!-- TOPBAR -->
-
-        <header class="topbar">
-
-            <div class="topbar-left">
-
-                <button
-                    type="button"
-                    id="btn-menu"
-                    class="menu-button"
-                    aria-label="Abrir menú"
-                >
-                    ☰
-                </button>
-
-                <div>
-
-                    <h2>
-                        Valoración de Enfermería
-                    </h2>
-
-                    <p>
-                        Registra y gestiona la valoración del paciente.
-                    </p>
-
+                <div class="brand-logo">
+                    N
                 </div>
 
-            </div>
+                <div class="brand-info">
 
-
-            <div class="user-menu">
-
-                <div
-                    class="user-avatar"
-                    id="user-avatar"
-                >
-                    U
-                </div>
-
-                <div class="user-info">
-
-                    <strong id="usuarioNombre">
-                        Usuario
-                    </strong>
+                    <h1>
+                        Nursify
+                    </h1>
 
                     <span>
-                        Enfermería
+                        PAE Digital
                     </span>
 
                 </div>
 
             </div>
 
-        </header>
+
+            <!-- NAVEGACIÓN -->
+
+            <nav class="sidebar-nav">
 
 
-        <!-- =========================
-             CONTENIDO
-        ========================== -->
-
-        <main class="valoracion-container">
+                <p class="nav-section-title">
+                    PRINCIPAL
+                </p>
 
 
-            <!-- =========================
-                 SELECCIÓN DEL PACIENTE
-            ========================== -->
+                <a
+                    href="dashboard.html"
+                    class="nav-item"
+                >
 
-            <section class="card">
+                    <span class="nav-icon">
+                        ⌂
+                    </span>
 
-                <div class="card-header">
+                    <span>
+                        Inicio
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="pacientes.html"
+                    class="nav-item"
+                >
+
+                    <span class="nav-icon">
+                        ♙
+                    </span>
+
+                    <span>
+                        Pacientes
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="valoracion.html"
+                    class="nav-item active"
+                >
+
+                    <span class="nav-icon">
+                        ＋
+                    </span>
+
+                    <span>
+                        Valoración
+                    </span>
+
+                </a>
+
+
+                <p class="nav-section-title">
+                    PROCESO DE ATENCIÓN
+                </p>
+
+
+                <a
+                    href="diagnosticos.html"
+                    class="nav-item"
+                >
+
+                    <span class="nav-icon">
+                        ✚
+                    </span>
+
+                    <span>
+                        Diagnósticos
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="pae.html"
+                    class="nav-item"
+                >
+
+                    <span class="nav-icon">
+                        ▣
+                    </span>
+
+                    <span>
+                        PAE
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="reportes.html"
+                    class="nav-item"
+                >
+
+                    <span class="nav-icon">
+                        ▤
+                    </span>
+
+                    <span>
+                        Reportes
+                    </span>
+
+                </a>
+
+
+                <p class="nav-section-title">
+                    SISTEMA
+                </p>
+
+
+                <a
+                    href="configuracion.html"
+                    class="nav-item"
+                >
+
+                    <span class="nav-icon">
+                        ⚙
+                    </span>
+
+                    <span>
+                        Configuración
+                    </span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- CERRAR SESIÓN -->
+
+            <div class="sidebar-footer">
+
+                <!-- IMPORTANTE:
+                     Se mantiene btnCerrarSesion porque
+                     valoracion.js actualmente utiliza este ID.
+                -->
+
+                <button
+                    type="button"
+                    id="btnCerrarSesion"
+                    class="logout-button"
+                >
+
+                    <span class="nav-icon">
+                        ↪
+                    </span>
+
+                    <span>
+                        Cerrar sesión
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </aside>
+
+
+        <!-- =========================================
+             CONTENIDO PRINCIPAL
+        ========================================== -->
+
+        <div class="main-container">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+
+                <div class="topbar-left">
+
+
+                    <button
+                        type="button"
+                        id="btn-menu"
+                        class="menu-button"
+                        aria-label="Abrir menú"
+                    >
+                        ☰
+                    </button>
+
 
                     <div>
 
                         <h2>
+                            Valoración
+                        </h2>
+
+                        <p>
+                            Valoración de enfermería
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- USUARIO -->
+
+                <div class="user-menu">
+
+
+                    <div
+                        class="user-avatar"
+                        id="user-avatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div class="user-info">
+
+                        <!-- Se mantiene usuarioNombre
+                             porque valoracion.js lo utiliza -->
+
+                        <strong id="usuarioNombre">
+                            Usuario
+                        </strong>
+
+
+                        <span id="user-role">
+                            Usuario
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </header>
+
+
+            <!-- =========================================
+                 CONTENIDO DE VALORACIÓN
+            ========================================== -->
+
+            <main class="valoracion-content">
+
+
+                <!-- =====================================
+                     ENCABEZADO
+                ====================================== -->
+
+                <section class="page-header">
+
+
+                    <div>
+
+                        <p class="page-label">
+                            PROCESO DE ATENCIÓN
+                        </p>
+
+
+                        <h1>
+                            Valoración de enfermería
+                        </h1>
+
+
+                        <p>
+                            Registra y administra la valoración
+                            clínica del paciente.
+                        </p>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- =====================================
+                     SELECCIÓN DEL PACIENTE
+                ====================================== -->
+
+                <section class="content-card">
+
+
+                    <div class="card-header">
+
+
+                        <div>
+
+                            <h2>
+                                Seleccionar paciente
+                            </h2>
+
+                            <p>
+                                Selecciona el paciente al que
+                                deseas realizar la valoración.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-group">
+
+
+                        <label for="selectPaciente">
                             Paciente
-                        </h2>
-
-                        <p>
-                            Selecciona el paciente que será valorado.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="selectPaciente">
-                        Paciente
-                    </label>
-
-                    <select id="selectPaciente">
-
-                        <option value="">
-                            Seleccione un paciente
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div
-                    id="pacienteSeleccionado"
-                    class="paciente-info hidden"
-                >
-
-                    <div class="paciente-info-item">
-
-                        <span class="label">
-                            DNI
-                        </span>
-
-                        <strong id="pacienteDni">
-                            -
-                        </strong>
-
-                    </div>
-
-
-                    <div class="paciente-info-item">
-
-                        <span class="label">
-                            Nombres
-                        </span>
-
-                        <strong id="pacienteNombres">
-                            -
-                        </strong>
-
-                    </div>
-
-
-                    <div class="paciente-info-item">
-
-                        <span class="label">
-                            Apellidos
-                        </span>
-
-                        <strong id="pacienteApellidos">
-                            -
-                        </strong>
-
-                    </div>
-
-
-                    <div class="paciente-info-item">
-
-                        <span class="label">
-                            Edad
-                        </span>
-
-                        <strong id="pacienteEdad">
-                            -
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 FORMULARIO
-            ========================== -->
-
-            <section class="card">
-
-                <div class="card-header">
-
-                    <div>
-
-                        <h2 id="tituloFormulario">
-                            Nueva valoración
-                        </h2>
-
-                        <p>
-                            Completa la información clínica del paciente.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <form id="formValoracion">
-
-
-                    <!-- FECHA -->
-
-                    <div class="form-group">
-
-                        <label for="fecha">
-                            Fecha y hora
                         </label>
 
-                        <input
-                            type="datetime-local"
-                            id="fecha"
+
+                        <select
+                            id="selectPaciente"
                         >
 
-                    </div>
+                            <option value="">
+                                Seleccione un paciente
+                            </option>
 
+                        </select>
 
-                    <!-- DATOS CLÍNICOS -->
-
-                    <div class="form-group">
-
-                        <label for="datosClinicos">
-                            Datos clínicos
-                        </label>
-
-                        <textarea
-                            id="datosClinicos"
-                            rows="6"
-                            placeholder="Ingrese los datos clínicos relevantes del paciente..."
-                        ></textarea>
 
                     </div>
 
 
-                    <!-- SIGNOS VITALES -->
+                    <!-- INFORMACIÓN DEL PACIENTE -->
 
-                    <div class="section-title">
-
-                        <h3>
-                            Signos vitales
-                        </h3>
-
-                    </div>
+                    <div
+                        id="pacienteSeleccionado"
+                        class="paciente-info hidden"
+                    >
 
 
-                    <div class="signos-grid">
+                        <div class="patient-info-item">
 
+                            <span>
+                                DNI
+                            </span>
 
-                        <div class="form-group">
-
-                            <label for="presionArterial">
-                                Presión arterial
-                            </label>
-
-                            <input
-                                type="text"
-                                id="presionArterial"
-                                placeholder="120/80 mmHg"
-                            >
+                            <strong id="pacienteDni">
+                                -
+                            </strong>
 
                         </div>
 
 
-                        <div class="form-group">
+                        <div class="patient-info-item">
 
-                            <label for="frecuenciaCardiaca">
-                                Frecuencia cardíaca
-                            </label>
+                            <span>
+                                Nombres
+                            </span>
 
-                            <input
-                                type="text"
-                                id="frecuenciaCardiaca"
-                                placeholder="78 lpm"
-                            >
+                            <strong id="pacienteNombres">
+                                -
+                            </strong>
 
                         </div>
 
 
-                        <div class="form-group">
+                        <div class="patient-info-item">
 
-                            <label for="frecuenciaRespiratoria">
-                                Frecuencia respiratoria
-                            </label>
+                            <span>
+                                Apellidos
+                            </span>
 
-                            <input
-                                type="text"
-                                id="frecuenciaRespiratoria"
-                                placeholder="18 rpm"
-                            >
+                            <strong id="pacienteApellidos">
+                                -
+                            </strong>
 
                         </div>
 
 
-                        <div class="form-group">
+                        <div class="patient-info-item">
 
-                            <label for="temperatura">
-                                Temperatura
-                            </label>
+                            <span>
+                                Edad
+                            </span>
 
-                            <input
-                                type="text"
-                                id="temperatura"
-                                placeholder="36.7 °C"
-                            >
+                            <strong id="pacienteEdad">
+                                -
+                            </strong>
 
                         </div>
 
 
-                        <div class="form-group">
+                    </div>
 
-                            <label for="saturacion">
-                                SpO₂
-                            </label>
 
-                            <input
-                                type="text"
-                                id="saturacion"
-                                placeholder="98 %"
-                            >
+                </section>
+
+
+                <!-- =====================================
+                     FORMULARIO DE VALORACIÓN
+                ====================================== -->
+
+                <section class="content-card">
+
+
+                    <div class="card-header">
+
+
+                        <div>
+
+                            <h2 id="tituloFormulario">
+                                Nueva valoración
+                            </h2>
+
+                            <p>
+                                Registra la información clínica
+                                del paciente.
+                            </p>
 
                         </div>
 
-                    </div>
-
-
-                    <!-- PATRONES DE GORDON -->
-
-                    <div class="section-title">
-
-                        <h3>
-                            Patrones funcionales de Gordon
-                        </h3>
 
                     </div>
 
 
-                    <div class="form-group">
-
-                        <label for="patronesGordon">
-                            Valoración de los patrones
-                        </label>
-
-                        <textarea
-                            id="patronesGordon"
-                            rows="10"
-                            placeholder="Ingrese la información correspondiente a los patrones funcionales de Gordon..."
-                        ></textarea>
-
-                    </div>
+                    <form id="formValoracion">
 
 
-                    <!-- BOTONES -->
+                        <!-- FECHA -->
 
-                    <div class="form-actions">
-
-                        <button
-                            type="button"
-                            id="btnCancelar"
-                            class="btn-secondary hidden"
-                        >
-                            Cancelar edición
-                        </button>
-
-                        <button
-                            type="submit"
-                            id="btnGuardar"
-                            class="btn-primary"
-                        >
-                            Guardar valoración
-                        </button>
-
-                    </div>
-
-                </form>
-
-            </section>
+                        <div class="form-group">
 
 
-            <!-- =========================
-                 HISTORIAL
-            ========================== -->
-
-            <section class="card">
-
-                <div class="card-header">
-
-                    <div>
-
-                        <h2>
-                            Historial de valoraciones
-                        </h2>
-
-                        <p>
-                            Valoraciones registradas para el paciente seleccionado.
-                        </p>
-
-                    </div>
-
-                </div>
+                            <label for="fecha">
+                                Fecha y hora
+                            </label>
 
 
-                <div
-                    id="mensajeHistorial"
-                    class="mensaje-vacio"
-                >
-                    Selecciona un paciente para visualizar sus valoraciones.
-                </div>
+                            <input
+                                type="datetime-local"
+                                id="fecha"
+                            >
 
 
-                <div class="table-container">
+                        </div>
 
-                    <table id="tablaValoraciones">
 
-                        <thead>
+                        <!-- DATOS CLÍNICOS -->
 
-                            <tr>
+                        <div class="form-group">
 
-                                <th>
-                                    Fecha
-                                </th>
 
-                                <th>
-                                    Datos clínicos
-                                </th>
+                            <label for="datosClinicos">
+                                Datos clínicos
+                            </label>
 
-                                <th>
+
+                            <textarea
+                                id="datosClinicos"
+                                rows="6"
+                                placeholder="Ingrese los datos clínicos relevantes del paciente..."
+                            ></textarea>
+
+
+                        </div>
+
+
+                        <!-- =================================
+                             SIGNOS VITALES
+                        ================================== -->
+
+                        <div class="section-title">
+
+
+                            <div>
+
+                                <h3>
                                     Signos vitales
-                                </th>
+                                </h3>
 
-                                <th>
-                                    Acciones
-                                </th>
+                                <p>
+                                    Registra los signos vitales
+                                    obtenidos durante la valoración.
+                                </p>
 
-                            </tr>
-
-                        </thead>
+                            </div>
 
 
-                        <tbody id="tablaValoracionesBody">
+                        </div>
 
-                        </tbody>
 
-                    </table>
+                        <div class="signos-grid">
 
-                </div>
 
-            </section>
+                            <!-- PA -->
 
-        </main>
+                            <div class="form-group">
+
+                                <label for="presionArterial">
+                                    Presión arterial
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="presionArterial"
+                                    placeholder="120/80 mmHg"
+                                >
+
+                            </div>
+
+
+                            <!-- FC -->
+
+                            <div class="form-group">
+
+                                <label for="frecuenciaCardiaca">
+                                    Frecuencia cardíaca
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="frecuenciaCardiaca"
+                                    placeholder="78 lpm"
+                                >
+
+                            </div>
+
+
+                            <!-- FR -->
+
+                            <div class="form-group">
+
+                                <label for="frecuenciaRespiratoria">
+                                    Frecuencia respiratoria
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="frecuenciaRespiratoria"
+                                    placeholder="18 rpm"
+                                >
+
+                            </div>
+
+
+                            <!-- TEMPERATURA -->
+
+                            <div class="form-group">
+
+                                <label for="temperatura">
+                                    Temperatura
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="temperatura"
+                                    placeholder="36.7 °C"
+                                >
+
+                            </div>
+
+
+                            <!-- SATURACIÓN -->
+
+                            <div class="form-group">
+
+                                <label for="saturacion">
+                                    Saturación de oxígeno
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="saturacion"
+                                    placeholder="98 %"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- =================================
+                             PATRONES DE GORDON
+                        ================================== -->
+
+                        <div class="section-title">
+
+
+                            <div>
+
+                                <h3>
+                                    Patrones funcionales de Gordon
+                                </h3>
+
+                                <p>
+                                    Registra la información obtenida
+                                    de los patrones funcionales.
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-group">
+
+
+                            <label for="patronesGordon">
+                                Valoración de los patrones
+                            </label>
+
+
+                            <textarea
+                                id="patronesGordon"
+                                rows="10"
+                                placeholder="Ingrese la información correspondiente a los patrones funcionales de Gordon..."
+                            ></textarea>
+
+
+                        </div>
+
+
+                        <!-- BOTONES -->
+
+                        <div class="form-actions">
+
+
+                            <button
+                                type="button"
+                                id="btnCancelar"
+                                class="btn-secondary hidden"
+                            >
+                                Cancelar edición
+                            </button>
+
+
+                            <button
+                                type="submit"
+                                id="btnGuardar"
+                                class="btn-primary"
+                            >
+                                Guardar valoración
+                            </button>
+
+
+                        </div>
+
+
+                    </form>
+
+
+                </section>
+
+
+                <!-- =====================================
+                     HISTORIAL
+                ====================================== -->
+
+                <section class="content-card">
+
+
+                    <div class="card-header">
+
+
+                        <div>
+
+                            <h2>
+                                Historial de valoraciones
+                            </h2>
+
+                            <p>
+                                Consulta las valoraciones
+                                registradas del paciente.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        id="mensajeHistorial"
+                        class="mensaje-vacio"
+                    >
+                        Selecciona un paciente para visualizar
+                        sus valoraciones.
+                    </div>
+
+
+                    <div class="table-container">
+
+
+                        <table id="tablaValoraciones">
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Fecha
+                                    </th>
+
+                                    <th>
+                                        Datos clínicos
+                                    </th>
+
+                                    <th>
+                                        Signos vitales
+                                    </th>
+
+                                    <th>
+                                        Acciones
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="tablaValoracionesBody">
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </main>
+
+
+        </div>
+
 
     </div>
 
-</div>
 
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
 
-<!-- JAVASCRIPT -->
+    <script src="../js/api.js"></script>
 
-<script src="../js/api.js"></script>
-<script src="../js/auth.js"></script>
-<script src="../js/views/valoracion.js"></script>
-```
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/views/valoracion.js"></script>
+
 
 </body>
 
