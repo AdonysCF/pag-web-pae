@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diagnósticos - Nursify</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/views/diagnosticos.css">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- ========================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+
+                <div class="logo-icon">
+                    N
+                </div>
+
+                <div class="logo-text">
+                    <span class="logo-title">Nursify</span>
+                    <span class="logo-subtitle">PAE</span>
+                </div>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">⌂</span>
+                    <span>Inicio</span>
+                </a>
+
+                <a href="pacientes.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span>Pacientes</span>
+                </a>
+
+                <a href="valoracion.html" class="nav-item">
+                    <span class="nav-icon">📋</span>
+                    <span>Valoración</span>
+                </a>
+
+                <a href="diagnosticos.html" class="nav-item active">
+                    <span class="nav-icon">🩺</span>
+                    <span>Diagnósticos</span>
+                </a>
+
+                <a href="pae.html" class="nav-item">
+                    <span class="nav-icon">📝</span>
+                    <span>PAE</span>
+                </a>
+
+                <a href="casos-clinicos.html" class="nav-item">
+                    <span class="nav-icon">📄</span>
+                    <span>Casos clínicos</span>
+                </a>
+
+                <a href="reportes.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span>Reportes</span>
+                </a>
+
+                <a href="configuracion.html" class="nav-item">
+                    <span class="nav-icon">⚙</span>
+                    <span>Configuración</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <button id="btnCerrarSesion" class="logout-button">
+                    <span>↪</span>
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ========================= -->
+        <!-- CONTENIDO PRINCIPAL -->
+        <!-- ========================= -->
+
+        <main class="main-container">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <h1>Diagnósticos</h1>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <div class="user-info">
+
+                        <div class="user-avatar">
+                            👤
+                        </div>
+
+                        <div class="user-data">
+
+                            <span id="usuarioNombre" class="user-name">
+                                Usuario
+                            </span>
+
+                            <span class="user-role">
+                                Enfermería
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENIDO -->
+
+            <section class="diagnosticos-content">
+
+
+                <!-- ========================= -->
+                <!-- ENCABEZADO -->
+                <!-- ========================= -->
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h2>Gestión de diagnósticos</h2>
+
+                        <p>
+                            Selecciona un paciente para consultar y gestionar
+                            sus diagnósticos de enfermería.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ========================= -->
+                <!-- SELECTOR DE PACIENTE -->
+                <!-- ========================= -->
+
+                <div class="card paciente-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>Paciente</h3>
+
+                            <p>
+                                Selecciona el paciente que deseas evaluar.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="selectPaciente">
+                            Paciente
+                        </label>
+
+                        <select id="selectPaciente">
+
+                            <option value="">
+                                Seleccione un paciente
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div
+                        id="pacienteSeleccionado"
+                        class="paciente-info hidden"
+                    >
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                DNI
+                            </span>
+
+                            <span
+                                id="pacienteDni"
+                                class="info-value"
+                            >
+                                -
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Nombres
+                            </span>
+
+                            <span
+                                id="pacienteNombres"
+                                class="info-value"
+                            >
+                                -
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Apellidos
+                            </span>
+
+                            <span
+                                id="pacienteApellidos"
+                                class="info-value"
+                            >
+                                -
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Edad
+                            </span>
+
+                            <span
+                                id="pacienteEdad"
+                                class="info-value"
+                            >
+                                -
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ========================= -->
+                <!-- CONTENEDOR DE DIAGNÓSTICOS -->
+                <!-- ========================= -->
+
+                <div class="diagnosticos-grid">
+
+
+                    <!-- ========================= -->
+                    <!-- CATÁLOGO -->
+                    <!-- ========================= -->
+
+                    <div class="card catalogo-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Catálogo de diagnósticos
+                                </h3>
+
+                                <p>
+                                    Diagnósticos disponibles en el sistema.
+                                </p>
+
+                            </div>
+
+                            <span
+                                id="contadorDiagnosticos"
+                                class="contador"
+                            >
+                                0
+                            </span>
+
+                        </div>
+
+
+                        <div class="busqueda-container">
+
+                            <input
+                                type="text"
+                                id="buscarDiagnostico"
+                                placeholder="Buscar por código o nombre..."
+                            >
+
+                        </div>
+
+
+                        <div class="tabla-container">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Código
+                                        </th>
+
+                                        <th>
+                                            Diagnóstico
+                                        </th>
+
+                                        <th>
+                                            Tipo
+                                        </th>
+
+                                        <th>
+                                            Acción
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="tablaDiagnosticosBody">
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ========================= -->
+                    <!-- DIAGNÓSTICOS DEL PACIENTE -->
+                    <!-- ========================= -->
+
+                    <div class="card asignados-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Diagnósticos del paciente
+                                </h3>
+
+                                <p>
+                                    Diagnósticos actualmente asignados.
+                                </p>
+
+                            </div>
+
+                            <span
+                                id="contadorAsignados"
+                                class="contador"
+                            >
+                                0
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="mensajeDiagnosticos"
+                            class="mensaje"
+                        >
+                            Selecciona un paciente para ver sus diagnósticos.
+                        </div>
+
+
+                        <div class="tabla-container">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Código
+                                        </th>
+
+                                        <th>
+                                            Diagnóstico
+                                        </th>
+
+                                        <th>
+                                            Fecha
+                                        </th>
+
+                                        <th>
+                                            Acción
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="tablaAsignadosBody">
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ========================= -->
+                <!-- MODAL ASIGNAR -->
+                <!-- ========================= -->
+
+                <div
+                    id="modalAsignar"
+                    class="modal-overlay hidden"
+                >
+
+                    <div class="modal">
+
+                        <div class="modal-header">
+
+                            <div>
+
+                                <h3>
+                                    Asignar diagnóstico
+                                </h3>
+
+                                <p>
+                                    Asigna el diagnóstico seleccionado
+                                    al paciente.
+                                </p>
+
+                            </div>
+
+                            <button
+                                id="btnCerrarModal"
+                                class="btn-close"
+                                type="button"
+                            >
+                                ×
+                            </button>
+
+                        </div>
+
+
+                        <div class="modal-body">
+
+
+                            <div class="diagnostico-preview">
+
+                                <span class="preview-label">
+                                    Diagnóstico
+                                </span>
+
+                                <strong id="diagnosticoNombreModal">
+                                    -
+                                </strong>
+
+                                <span id="diagnosticoCodigoModal">
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="descripcionDiagnostico">
+                                    Descripción
+                                </label>
+
+                                <textarea
+                                    id="descripcionDiagnostico"
+                                    rows="5"
+                                    placeholder="Ingrese una descripción o información adicional..."
+                                ></textarea>
+
+                            </div>
+
+
+                            <div
+                                id="mensajeModal"
+                                class="mensaje"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="modal-footer">
+
+                            <button
+                                id="btnCancelarAsignacion"
+                                class="btn-secondary"
+                                type="button"
+                            >
+                                Cancelar
+                            </button>
+
+                            <button
+                                id="btnConfirmarAsignacion"
+                                class="btn-primary"
+                                type="button"
+                            >
+                                Asignar diagnóstico
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/views/diagnosticos.js"></script>
+
+</body>
+
+</html>
