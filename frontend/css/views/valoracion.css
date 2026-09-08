@@ -1,0 +1,260 @@
+.valoracion-container {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+/* CARD */
+
+.card {
+    background: var(--color-surface, #ffffff);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* HEADER */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.card-header h2 {
+    margin: 0;
+}
+
+.card-header p {
+    margin-top: 6px;
+    color: #777;
+}
+
+
+/* FORMULARIOS */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 13px;
+    border: 1px solid #d7d7d7;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #fff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary, #2563eb);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* INFORMACIÓN PACIENTE */
+
+.paciente-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 18px;
+    border-radius: 10px;
+    background: #f7f8fa;
+}
+
+.paciente-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.paciente-info-item .label {
+    font-size: 12px;
+    color: #777;
+}
+
+.paciente-info-item strong {
+    font-size: 15px;
+}
+
+
+/* SIGNOS VITALES */
+
+.section-title {
+    margin: 28px 0 18px;
+}
+
+.section-title h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.signos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+}
+
+
+/* BOTONES */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-edit {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: var(--color-primary, #2563eb);
+    color: white;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #333;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-edit {
+    background: #e5e7eb;
+    color: #333;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-danger:hover,
+.btn-edit:hover {
+    opacity: 0.9;
+}
+
+
+/* TABLA */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#tablaValoraciones {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tablaValoraciones th,
+#tablaValoraciones td {
+    padding: 13px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+    vertical-align: top;
+}
+
+#tablaValoraciones th {
+    background: #f7f8fa;
+    font-size: 13px;
+}
+
+#tablaValoraciones td {
+    font-size: 14px;
+}
+
+.acciones {
+    display: flex;
+    gap: 8px;
+}
+
+
+/* MENSAJE VACÍO */
+
+.mensaje-vacio {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+}
+
+
+/* OCULTAR */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .paciente-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .signos-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .valoracion-container {
+        padding: 15px;
+    }
+
+    .paciente-info {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+}

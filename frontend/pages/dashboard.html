@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nursify - Dashboard</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/views/dashboard.css">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- =========================
+             BARRA LATERAL
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+
+                <div class="brand-logo">
+                    N
+                </div>
+
+                <div class="brand-info">
+                    <h1>Nursify</h1>
+                    <span>PAE Digital</span>
+                </div>
+
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-section-title">
+                    PRINCIPAL
+                </p>
+
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="nav-icon">⌂</span>
+                    <span>Inicio</span>
+                </a>
+
+                <a href="pacientes.html" class="nav-item">
+                    <span class="nav-icon">♙</span>
+                    <span>Pacientes</span>
+                </a>
+
+                <a href="valoracion.html" class="nav-item">
+                    <span class="nav-icon">＋</span>
+                    <span>Valoración</span>
+                </a>
+
+                <p class="nav-section-title">
+                    PROCESO DE ATENCIÓN
+                </p>
+
+                <a href="diagnosticos.html" class="nav-item">
+                    <span class="nav-icon">✚</span>
+                    <span>Diagnósticos</span>
+                </a>
+
+                <a href="pae.html" class="nav-item">
+                    <span class="nav-icon">▣</span>
+                    <span>PAE</span>
+                </a>
+
+                <a href="reportes.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Reportes</span>
+                </a>
+
+                <p class="nav-section-title">
+                    SISTEMA
+                </p>
+
+                <a href="configuracion.html" class="nav-item">
+                    <span class="nav-icon">⚙</span>
+                    <span>Configuración</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+                <button
+                    type="button"
+                    id="btn-logout"
+                    class="logout-button"
+                >
+                    <span class="nav-icon">↪</span>
+                    <span>Cerrar sesión</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             CONTENIDO PRINCIPAL
+        ========================== -->
+
+        <div class="main-container">
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        type="button"
+                        id="btn-menu"
+                        class="menu-button"
+                        aria-label="Abrir menú"
+                    >
+                        ☰
+                    </button>
+
+                    <div>
+                        <h2>Inicio</h2>
+                        <p>Panel principal</p>
+                    </div>
+
+                </div>
+
+
+                <div class="user-menu">
+
+                    <div class="user-avatar" id="user-avatar">
+                        U
+                    </div>
+
+                    <div class="user-info">
+
+                        <strong id="user-name">
+                            Usuario
+                        </strong>
+
+                        <span id="user-role">
+                            Usuario
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENIDO -->
+
+            <main class="dashboard-content">
+
+                <!-- BIENVENIDA -->
+
+                <section class="welcome-section">
+
+                    <div>
+
+                        <p class="welcome-label">
+                            PANEL DE CONTROL
+                        </p>
+
+                        <h1>
+                            Bienvenido a Nursify
+                        </h1>
+
+                        <p id="welcome-message">
+                            Gestiona tus pacientes y procesos de atención de enfermería.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ESTADÍSTICAS -->
+
+                <section class="stats-grid">
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon patients-icon">
+                            ♙
+                        </div>
+
+                        <div class="stat-information">
+
+                            <span>
+                                Pacientes
+                            </span>
+
+                            <strong id="total-pacientes">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon">
+                            ＋
+                        </div>
+
+                        <div class="stat-information">
+
+                            <span>
+                                Valoraciones
+                            </span>
+
+                            <strong id="total-valoraciones">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon">
+                            ✚
+                        </div>
+
+                        <div class="stat-information">
+
+                            <span>
+                                Diagnósticos
+                            </span>
+
+                            <strong id="total-diagnosticos">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon">
+                            ▣
+                        </div>
+
+                        <div class="stat-information">
+
+                            <span>
+                                PAE realizados
+                            </span>
+
+                            <strong id="total-pae">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+                <!-- ACCIONES RÁPIDAS -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <div>
+                            <h2>Acciones rápidas</h2>
+
+                            <p>
+                                Accede rápidamente a las funciones principales.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+                        <a
+                            href="pacientes.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ♙
+                            </div>
+
+                            <div>
+                                <strong>Nuevo paciente</strong>
+
+                                <span>
+                                    Registrar un nuevo paciente
+                                </span>
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="valoracion.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ＋
+                            </div>
+
+                            <div>
+                                <strong>Nueva valoración</strong>
+
+                                <span>
+                                    Registrar una valoración
+                                </span>
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="diagnosticos.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ✚
+                            </div>
+
+                            <div>
+                                <strong>Diagnósticos</strong>
+
+                                <span>
+                                    Consultar diagnósticos
+                                </span>
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="reportes.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ▤
+                            </div>
+
+                            <div>
+                                <strong>Reportes</strong>
+
+                                <span>
+                                    Consultar reportes generados
+                                </span>
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ESTADO DEL SISTEMA -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <h2>
+                                Estado del sistema
+                            </h2>
+
+                            <p>
+                                Información de conexión de Nursify.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="system-status">
+
+                        <div class="status-item">
+
+                            <span class="status-indicator"></span>
+
+                            <div>
+                                <strong>API de Nursify</strong>
+
+                                <span id="api-status">
+                                    Comprobando conexión...
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="status-item">
+
+                            <span class="status-indicator"></span>
+
+                            <div>
+                                <strong>Sesión</strong>
+
+                                <span id="session-status">
+                                    Sesión activa
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/views/dashboard.js"></script>
+
+</body>
+
+</html>

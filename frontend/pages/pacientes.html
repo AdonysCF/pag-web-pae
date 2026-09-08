@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nursify - Pacientes</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/views/pacientes.css">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+
+                <div class="brand-logo">
+                    N
+                </div>
+
+                <div class="brand-info">
+                    <h1>Nursify</h1>
+                    <span>PAE Digital</span>
+                </div>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-section-title">
+                    PRINCIPAL
+                </p>
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">⌂</span>
+                    <span>Inicio</span>
+                </a>
+
+                <a href="pacientes.html" class="nav-item active">
+                    <span class="nav-icon">♙</span>
+                    <span>Pacientes</span>
+                </a>
+
+                <a href="valoracion.html" class="nav-item">
+                    <span class="nav-icon">＋</span>
+                    <span>Valoración</span>
+                </a>
+
+
+                <p class="nav-section-title">
+                    PROCESO DE ATENCIÓN
+                </p>
+
+                <a href="diagnosticos.html" class="nav-item">
+                    <span class="nav-icon">✚</span>
+                    <span>Diagnósticos</span>
+                </a>
+
+                <a href="pae.html" class="nav-item">
+                    <span class="nav-icon">▣</span>
+                    <span>PAE</span>
+                </a>
+
+                <a href="reportes.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Reportes</span>
+                </a>
+
+
+                <p class="nav-section-title">
+                    SISTEMA
+                </p>
+
+                <a href="configuracion.html" class="nav-item">
+                    <span class="nav-icon">⚙</span>
+                    <span>Configuración</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <button
+                    type="button"
+                    id="btn-logout"
+                    class="logout-button"
+                >
+                    <span class="nav-icon">↪</span>
+                    <span>Cerrar sesión</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             CONTENIDO PRINCIPAL
+        ========================== -->
+
+        <div class="main-container">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        type="button"
+                        id="btn-menu"
+                        class="menu-button"
+                        aria-label="Abrir menú"
+                    >
+                        ☰
+                    </button>
+
+                    <div>
+
+                        <h2>Pacientes</h2>
+
+                        <p>
+                            Gestión de pacientes
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="user-menu">
+
+                    <div
+                        class="user-avatar"
+                        id="user-avatar"
+                    >
+                        U
+                    </div>
+
+                    <div class="user-info">
+
+                        <strong id="user-name">
+                            Usuario
+                        </strong>
+
+                        <span id="user-role">
+                            Usuario
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 CONTENIDO
+            ========================== -->
+
+            <main class="patients-content">
+
+
+                <!-- ENCABEZADO -->
+
+                <section class="page-header">
+
+                    <div>
+
+                        <p class="page-label">
+                            GESTIÓN
+                        </p>
+
+                        <h1>
+                            Pacientes
+                        </h1>
+
+                        <p>
+                            Registra y administra la información
+                            de los pacientes.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="btn-nuevo-paciente"
+                        class="btn-primary"
+                    >
+                        <span>＋</span>
+                        Nuevo paciente
+                    </button>
+
+                </section>
+
+
+                <!-- =========================
+                     BARRA DE BÚSQUEDA
+                ========================== -->
+
+                <section class="search-section">
+
+                    <div class="search-box">
+
+                        <span class="search-icon">
+                            🔍
+                        </span>
+
+                        <input
+                            type="text"
+                            id="buscar-paciente"
+                            placeholder="Buscar por DNI, nombres o apellidos..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     MENSAJE
+                ========================== -->
+
+                <div
+                    id="mensaje"
+                    class="mensaje"
+                    hidden
+                ></div>
+
+
+                <!-- =========================
+                     TABLA
+                ========================== -->
+
+                <section class="table-card">
+
+                    <div class="table-header">
+
+                        <div>
+
+                            <h2>
+                                Lista de pacientes
+                            </h2>
+
+                            <p id="contador-pacientes">
+                                0 pacientes
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        DNI
+                                    </th>
+
+                                    <th>
+                                        Paciente
+                                    </th>
+
+                                    <th>
+                                        Sexo
+                                    </th>
+
+                                    <th>
+                                        Edad
+                                    </th>
+
+                                    <th>
+                                        Acciones
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="tabla-pacientes">
+
+                                <tr>
+
+                                    <td
+                                        colspan="5"
+                                        class="loading-cell"
+                                    >
+                                        Cargando pacientes...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- ESTADO VACÍO -->
+
+                    <div
+                        id="estado-vacio"
+                        class="empty-state"
+                        hidden
+                    >
+
+                        <div class="empty-icon">
+                            ♙
+                        </div>
+
+                        <h3>
+                            No hay pacientes
+                        </h3>
+
+                        <p>
+                            Todavía no has registrado ningún paciente.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="btn-nuevo-paciente-vacio"
+                            class="btn-primary"
+                        >
+                            Registrar paciente
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL PACIENTE
+    ========================== -->
+
+    <div
+        id="modal-paciente"
+        class="modal-overlay"
+        hidden
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="modal-titulo">
+                        Nuevo paciente
+                    </h2>
+
+                    <p>
+                        Completa la información del paciente.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="btn-cerrar-modal"
+                    class="modal-close"
+                    aria-label="Cerrar"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="form-paciente">
+
+                <div class="form-grid">
+
+
+                    <!-- DNI -->
+
+                    <div class="form-group full-width">
+
+                        <label for="dni">
+                            DNI
+                        </label>
+
+                        <input
+                            type="text"
+                            id="dni"
+                            maxlength="20"
+                            placeholder="Ingrese el DNI"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- NOMBRES -->
+
+                    <div class="form-group">
+
+                        <label for="nombres">
+                            Nombres
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombres"
+                            maxlength="100"
+                            placeholder="Nombres"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- APELLIDOS -->
+
+                    <div class="form-group">
+
+                        <label for="apellidos">
+                            Apellidos
+                        </label>
+
+                        <input
+                            type="text"
+                            id="apellidos"
+                            maxlength="100"
+                            placeholder="Apellidos"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- SEXO -->
+
+                    <div class="form-group">
+
+                        <label for="sexo">
+                            Sexo
+                        </label>
+
+                        <select id="sexo">
+
+                            <option value="">
+                                Seleccionar
+                            </option>
+
+                            <option value="Masculino">
+                                Masculino
+                            </option>
+
+                            <option value="Femenino">
+                                Femenino
+                            </option>
+
+                            <option value="Otro">
+                                Otro
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- EDAD -->
+
+                    <div class="form-group">
+
+                        <label for="edad">
+                            Edad
+                        </label>
+
+                        <input
+                            type="number"
+                            id="edad"
+                            min="0"
+                            max="150"
+                            placeholder="Edad"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        id="btn-cancelar"
+                        class="btn-secondary"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="btn-guardar"
+                        class="btn-primary"
+                    >
+                        Guardar paciente
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL CONFIRMACIÓN
+    ========================== -->
+
+    <div
+        id="modal-eliminar"
+        class="modal-overlay"
+        hidden
+    >
+
+        <div class="modal modal-small">
+
+            <div class="confirm-icon">
+                !
+            </div>
+
+            <h2>
+                Eliminar paciente
+            </h2>
+
+            <p id="mensaje-eliminar">
+                ¿Estás seguro de que deseas eliminar este paciente?
+            </p>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    id="btn-cancelar-eliminar"
+                    class="btn-secondary"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    id="btn-confirmar-eliminar"
+                    class="btn-danger"
+                >
+                    Eliminar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/views/pacientes.js"></script>
+
+</body>
+
+</html>
