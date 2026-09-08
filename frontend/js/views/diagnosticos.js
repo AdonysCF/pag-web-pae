@@ -50,15 +50,17 @@ function verificarAutenticacion() {
 
 function mostrarUsuario() {
 
-    const usuarioNombre =
+    const elemento =
         document.getElementById("usuarioNombre");
 
     const usuario =
         localStorage.getItem("usuario");
 
-    if (!usuarioNombre) {
+
+    if (!elemento) {
         return;
     }
+
 
     if (usuario) {
 
@@ -67,14 +69,14 @@ function mostrarUsuario() {
             const datos =
                 JSON.parse(usuario);
 
-            usuarioNombre.textContent =
+            elemento.textContent =
                 datos.nombre ||
                 datos.username ||
                 "Usuario";
 
         } catch {
 
-            usuarioNombre.textContent =
+            elemento.textContent =
                 usuario;
 
         }
@@ -90,63 +92,52 @@ function mostrarUsuario() {
 
 function configurarEventos() {
 
-    const selectPaciente =
-        document.getElementById("selectPaciente");
-
-    const buscarDiagnostico =
-        document.getElementById("buscarDiagnostico");
-
-    const btnCerrarSesion =
-        document.getElementById("btnCerrarSesion");
-
-    const btnCerrarModal =
-        document.getElementById("btnCerrarModal");
-
-    const btnCancelarAsignacion =
-        document.getElementById(
-            "btnCancelarAsignacion"
-        );
-
-    const btnConfirmarAsignacion =
-        document.getElementById(
-            "btnConfirmarAsignacion"
+    document
+        .getElementById("selectPaciente")
+        .addEventListener(
+            "change",
+            cambiarPaciente
         );
 
 
-    selectPaciente.addEventListener(
-        "change",
-        cambiarPaciente
-    );
+    document
+        .getElementById("buscarDiagnostico")
+        .addEventListener(
+            "input",
+            filtrarDiagnosticos
+        );
 
 
-    buscarDiagnostico.addEventListener(
-        "input",
-        filtrarDiagnosticos
-    );
+    document
+        .getElementById("btnCerrarSesion")
+        .addEventListener(
+            "click",
+            cerrarSesion
+        );
 
 
-    btnCerrarSesion.addEventListener(
-        "click",
-        cerrarSesion
-    );
+    document
+        .getElementById("btnCerrarModal")
+        .addEventListener(
+            "click",
+            cerrarModal
+        );
 
 
-    btnCerrarModal.addEventListener(
-        "click",
-        cerrarModal
-    );
+    document
+        .getElementById("btnCancelarAsignacion")
+        .addEventListener(
+            "click",
+            cerrarModal
+        );
 
 
-    btnCancelarAsignacion.addEventListener(
-        "click",
-        cerrarModal
-    );
-
-
-    btnConfirmarAsignacion.addEventListener(
-        "click",
-        confirmarAsignacion
-    );
+    document
+        .getElementById("btnConfirmarAsignacion")
+        .addEventListener(
+            "click",
+            confirmarAsignacion
+        );
 
 }
 
@@ -186,9 +177,12 @@ async function cargarPacientes() {
         }
 
 
-        pacientes = await response.json();
+        pacientes =
+            await response.json();
+
 
         llenarSelectPacientes();
+
 
     } catch (error) {
 
@@ -206,7 +200,7 @@ async function cargarPacientes() {
 
 
 // =========================================
-// LLENAR SELECT PACIENTES
+// SELECT PACIENTES
 // =========================================
 
 function llenarSelectPacientes() {
@@ -229,11 +223,14 @@ function llenarSelectPacientes() {
         const option =
             document.createElement("option");
 
+
         option.value =
             paciente.id_paciente;
 
+
         option.textContent =
             `${paciente.dni} - ${paciente.nombres} ${paciente.apellidos}`;
+
 
         select.appendChild(option);
 
@@ -280,23 +277,16 @@ async function cambiarPaciente(event) {
 
     mostrarDatosPaciente();
 
-
     await cargarDiagnosticosPaciente();
 
 }
 
 
 // =========================================
-// MOSTRAR DATOS PACIENTE
+// MOSTRAR PACIENTE
 // =========================================
 
 function mostrarDatosPaciente() {
-
-    const contenedor =
-        document.getElementById(
-            "pacienteSeleccionado"
-        );
-
 
     document.getElementById(
         "pacienteDni"
@@ -320,19 +310,21 @@ function mostrarDatosPaciente() {
         "pacienteEdad"
     ).textContent =
         pacienteActual.edad != null
-            ? pacienteActual.edad + " años"
+            ? `${pacienteActual.edad} años`
             : "-";
 
 
-    contenedor.classList.remove(
-        "hidden"
-    );
+    document
+        .getElementById(
+            "pacienteSeleccionado"
+        )
+        .classList.remove("hidden");
 
 }
 
 
 // =========================================
-// OCULTAR DATOS PACIENTE
+// OCULTAR PACIENTE
 // =========================================
 
 function ocultarPaciente() {
@@ -459,12 +451,15 @@ function renderizarDiagnosticos() {
             fila.innerHTML = `
 
                 <td>
+
                     <span class="codigo-diagnostico">
                         ${escapeHtml(
                             diagnostico.codigo
                         )}
                     </span>
+
                 </td>
+
 
                 <td>
                     ${escapeHtml(
@@ -472,41 +467,41 @@ function renderizarDiagnosticos() {
                     )}
                 </td>
 
+
                 <td>
+
                     <span class="tipo-diagnostico">
                         ${escapeHtml(
                             diagnostico.tipo
                         )}
                     </span>
+
                 </td>
+
 
                 <td>
 
                     <button
                         class="btn-action"
                         type="button"
-                        data-id="${diagnostico.id_diagnostico}"
                     >
                         Asignar
                     </button>
 
                 </td>
+
             `;
 
 
-            const boton =
-                fila.querySelector(
-                    ".btn-action"
+            fila
+                .querySelector(".btn-action")
+                .addEventListener(
+                    "click",
+                    () =>
+                        abrirModalAsignacion(
+                            diagnostico
+                        )
                 );
-
-
-            boton.addEventListener(
-                "click",
-                () =>
-                    abrirModalAsignacion(
-                        diagnostico
-                    )
-            );
 
 
             tbody.appendChild(fila);
@@ -518,7 +513,7 @@ function renderizarDiagnosticos() {
 
 
 // =========================================
-// FILTRAR DIAGNÓSTICOS
+// BUSCAR
 // =========================================
 
 function filtrarDiagnosticos(event) {
@@ -602,12 +597,12 @@ async function cargarDiagnosticosPaciente() {
         }
 
 
-        const datos =
+        const asignaciones =
             await response.json();
 
 
         renderizarDiagnosticosPaciente(
-            datos
+            asignaciones
         );
 
 
@@ -673,10 +668,6 @@ function renderizarDiagnosticosPaciente(
     }
 
 
-    mensaje.textContent =
-        "";
-
-
     mensaje.className =
         "mensaje hidden";
 
@@ -708,27 +699,28 @@ function renderizarDiagnosticosPaciente(
                     : "Diagnóstico";
 
 
-            const fecha =
-                formatearFecha(
-                    asignacion.fecha
-                );
-
-
             fila.innerHTML = `
 
                 <td>
+
                     <span class="codigo-diagnostico">
                         ${escapeHtml(codigo)}
                     </span>
+
                 </td>
+
 
                 <td>
                     ${escapeHtml(nombre)}
                 </td>
 
+
                 <td>
-                    ${fecha}
+                    ${formatearFecha(
+                        asignacion.fecha
+                    )}
                 </td>
+
 
                 <td>
 
@@ -744,19 +736,15 @@ function renderizarDiagnosticosPaciente(
             `;
 
 
-            const botonEliminar =
-                fila.querySelector(
-                    ".btn-danger"
+            fila
+                .querySelector(".btn-danger")
+                .addEventListener(
+                    "click",
+                    () =>
+                        eliminarDiagnosticoPaciente(
+                            asignacion.id_diagnostico_paciente
+                        )
                 );
-
-
-            botonEliminar.addEventListener(
-                "click",
-                () =>
-                    eliminarDiagnosticoPaciente(
-                        asignacion.id_diagnostico_paciente
-                    )
-            );
 
 
             tbody.appendChild(fila);
@@ -768,7 +756,7 @@ function renderizarDiagnosticosPaciente(
 
 
 // =========================================
-// LIMPIAR TABLA
+// LIMPIAR
 // =========================================
 
 function limpiarDiagnosticosPaciente() {
@@ -800,7 +788,7 @@ function limpiarDiagnosticosPaciente() {
 
 
 // =========================================
-// ABRIR MODAL
+// MODAL
 // =========================================
 
 function abrirModalAsignacion(
@@ -850,11 +838,9 @@ function abrirModalAsignacion(
         "mensaje";
 
 
-    document.getElementById(
-        "modalAsignar"
-    ).classList.remove(
-        "hidden"
-    );
+    document
+        .getElementById("modalAsignar")
+        .classList.remove("hidden");
 
 }
 
@@ -868,17 +854,15 @@ function cerrarModal() {
     diagnosticoSeleccionado = null;
 
 
-    document.getElementById(
-        "modalAsignar"
-    ).classList.add(
-        "hidden"
-    );
+    document
+        .getElementById("modalAsignar")
+        .classList.add("hidden");
 
 }
 
 
 // =========================================
-// CONFIRMAR ASIGNACIÓN
+// ASIGNAR
 // =========================================
 
 async function confirmarAsignacion() {
@@ -910,9 +894,12 @@ async function confirmarAsignacion() {
 
 
     const descripcion =
-        document.getElementById(
-            "descripcionDiagnostico"
-        ).value.trim();
+        document
+            .getElementById(
+                "descripcionDiagnostico"
+            )
+            .value
+            .trim();
 
 
     try {
@@ -937,18 +924,24 @@ async function confirmarAsignacion() {
         }
 
 
-        const response = await fetch(
-            url,
-            {
-                method: "POST",
-                headers: {
-                    ...obtenerHeaders(),
-                    "Content-Type":
-                        "application/x-www-form-urlencoded"
-                },
-                body: body.toString()
-            }
-        );
+        const response =
+            await fetch(
+                url,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Authorization":
+                            `Bearer ${localStorage.getItem("token")}`,
+
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body:
+                        body.toString()
+                }
+            );
 
 
         if (response.status === 401) {
@@ -1003,7 +996,7 @@ async function confirmarAsignacion() {
 
 
 // =========================================
-// ELIMINAR DIAGNÓSTICO
+// ELIMINAR
 // =========================================
 
 async function eliminarDiagnosticoPaciente(
@@ -1023,16 +1016,17 @@ async function eliminarDiagnosticoPaciente(
 
     try {
 
-        const response = await fetch(
+        const response =
+            await fetch(
 
-            `${API_URL}/diagnosticos/paciente/asignacion/${idAsignacion}`,
+                `${API_URL}/diagnosticos/paciente/asignacion/${idAsignacion}`,
 
-            {
-                method: "DELETE",
-                headers: obtenerHeaders()
-            }
+                {
+                    method: "DELETE",
+                    headers: obtenerHeaders()
+                }
 
-        );
+            );
 
 
         if (response.status === 401) {
@@ -1049,8 +1043,10 @@ async function eliminarDiagnosticoPaciente(
             let resultado = {};
 
             try {
+
                 resultado =
                     await response.json();
+
             } catch {}
 
             throw new Error(
@@ -1172,9 +1168,7 @@ function mostrarMensaje(
 // FECHA
 // =========================================
 
-function formatearFecha(
-    fecha
-) {
+function formatearFecha(fecha) {
 
     if (!fecha) {
         return "-";
@@ -1185,9 +1179,11 @@ function formatearFecha(
         new Date(fecha);
 
 
-    if (Number.isNaN(
-        fechaObj.getTime()
-    )) {
+    if (
+        Number.isNaN(
+            fechaObj.getTime()
+        )
+    ) {
 
         return "-";
 
@@ -1212,8 +1208,10 @@ function formatearFecha(
 
 function escapeHtml(valor) {
 
-    if (valor === null ||
-        valor === undefined) {
+    if (
+        valor === null ||
+        valor === undefined
+    ) {
 
         return "";
 
