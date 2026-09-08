@@ -93,6 +93,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sidebar =
         document.querySelector(".sidebar");
 
+    const userAvatar =
+        document.getElementById("user-avatar");
+
+    const userName =
+        document.getElementById("user-name");
+
+    const userRole =
+        document.getElementById("user-role");
+
 
     // =========================================
     // VARIABLES
